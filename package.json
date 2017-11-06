@@ -1,0 +1,17 @@
+{
+  "name": "org.nov.myplugin",
+  "version": "0.0.1",
+  "description": "test plugin",
+  "cordova": {
+    "id": "org.nov.myplugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Diego Michel Rubio Ramirez",
+  "license": "ISC"
+}
