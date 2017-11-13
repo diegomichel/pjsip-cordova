@@ -11,9 +11,17 @@
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <service android:name="org.nov.myplugin.BackgroundService" />
+      <receiver
+        android:name="org.nov.myplugin.WakeUpReceiver"
+        android:enabled="true" >
+      </receiver>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
     </config-file>
     <config-file parent="/*" target="AndroidManifest.xml"></config-file>
     <source-file src="src/android/myplugin.java" target-dir="src/org/nov/myplugin/myplugin" />
     <source-file src="src/android/BackgroundService.java" target-dir="src/org/nov/myplugin/myplugin" />
+    <source-file src="src/android/WakeUpReceiver.java" target-dir="src/org/nov/myplugin/myplugin" />
   </platform>
 </plugin>

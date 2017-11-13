@@ -30,8 +30,9 @@ public class BackgroundService extends IntentService {
 
     @Override
     public void onTaskRemoved(Intent workIntent){
-        Log.i("BJ", "RSS being removed");
-        //Intent intent = new Intent(this, WakeUpReceiver.class);
-        //sendBroadcast(intent);
+        Log.i("BJ", "BackgroundService being removed");
+
+        Intent intent = new Intent(this, WakeUpReceiver.class);
+        sendBroadcast(intent);
     }
 }
