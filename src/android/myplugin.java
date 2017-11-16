@@ -33,16 +33,13 @@ public class myplugin extends CordovaPlugin {
         if (message != null && message.length() > 0) {
 
             Context context = this.cordova.getActivity().getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
 
             Log.i("BJ", "Starting!!!");
 
             Intent mServiceIntent = new Intent(this.cordova.getActivity(), BackgroundService.class);
             mServiceIntent.setData(Uri.parse("http://diegomichel.org"));
+            Log.i("BJ", cordova.getActivity().getPackageName());
+            mServiceIntent.putExtra("PKG_NAME", cordova.getActivity().getPackageName());
 
             this.cordova.getActivity().startService(mServiceIntent);
 
