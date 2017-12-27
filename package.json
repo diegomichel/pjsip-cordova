@@ -1,11 +1,12 @@
 {
-  "name": "org.nov.myplugin",
+  "name": "org.nov.pjsip-cordova",
   "version": "0.0.1",
-  "description": "test plugin",
+  "description": "PJSIP cordova integration",
   "cordova": {
-    "id": "org.nov.myplugin",
+    "id": "org.nov.pjsip-cordova",
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "keywords": [
