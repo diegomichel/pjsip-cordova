@@ -17,7 +17,7 @@ import org.nov.myplugin.BackgroundService;
 /**
  * This class echoes a string called from JavaScript.
  */
-public class myplugin extends CordovaPlugin {
+public class MyPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
