@@ -71,6 +71,7 @@ public class scAudioManager {
     public void playDTMF(String num){
         Log.i(TAG,"The dtmf number '"+num+"' will be called.");
         int sound=0;
+        /* TODO: FIX THIS.
         switch (num) {
             case "0":
                 sound = 1;
@@ -108,7 +109,7 @@ public class scAudioManager {
             case "*":
                 sound = 1;
                 break;
-        }
+        } */
         if (sound!=0)
             this.playTone(sound,false);
     }

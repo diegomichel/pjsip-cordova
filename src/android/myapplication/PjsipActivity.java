@@ -27,7 +27,7 @@ public class PjsipActivity implements MyAppObserver {
     static private String TAG = "PjsipActivity";
     static private String outGoingCallNumber = "";
     static private String inComingCallNumber = "";
-    private static Map<String,String> userSettings = new HashMap<>();
+    private static Map<String,String> userSettings = new HashMap<String,String>();
     private Context mcontext;
 
     public static synchronized void acceptCall(Context context) {

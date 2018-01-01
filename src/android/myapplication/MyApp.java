@@ -34,7 +34,7 @@ class MyLogWriter extends LogWriter
 class MyAccountConfig
 {
     public AccountConfig accCfg = new AccountConfig();
-    public ArrayList<BuddyConfig> buddyCfgs = new ArrayList<>();
+    public ArrayList<BuddyConfig> buddyCfgs = new ArrayList<BuddyConfig>();
     static private String TAG = "MyAccountConfig";
 
     public void readObject(ContainerNode node)
@@ -75,9 +75,9 @@ public class MyApp {
 
     public static Endpoint ep = new Endpoint();
     public static MyAppObserver observer;
-    public ArrayList<MyAccount> accList = new ArrayList<>();
+    public ArrayList<MyAccount> accList = new ArrayList<MyAccount>();
 
-    private ArrayList<MyAccountConfig> accCfgs = new ArrayList<>();
+    private ArrayList<MyAccountConfig> accCfgs = new ArrayList<MyAccountConfig>();
     private EpConfig epConfig = new EpConfig();
     private TransportConfig sipTpConfig = new TransportConfig();
     private String appDir;

@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.nov.myplugin.BackgroundService;
+import org.nov.pjsip.Permissions;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -35,6 +36,9 @@ public class MyPlugin extends CordovaPlugin {
             Context context = this.cordova.getActivity().getApplicationContext();
 
             Log.i("BJ", "Starting!!!");
+
+            Permissions permissions = new Permissions();
+            permissions.request(cordova.getActivity());
 
             Intent mServiceIntent = new Intent(this.cordova.getActivity(), BackgroundService.class);
             mServiceIntent.setData(Uri.parse("http://diegomichel.org"));

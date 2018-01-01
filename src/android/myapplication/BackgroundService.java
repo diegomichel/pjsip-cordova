@@ -58,10 +58,10 @@ public class BackgroundService extends Service {
     }
 
     private Notification buildForegroundNotification(String channel) {
-        NotificationCompat.Builder b=new NotificationCompat.Builder(this, channel);
+        NotificationCompat.Builder b=new NotificationCompat.Builder(this);
 
         b.setOngoing(true)
-                .setContentTitle(getString(R.string.notify_working))
+                .setContentTitle("Notification title...")
                 .setSmallIcon(android.R.drawable.stat_sys_download);
 
         return(b.build());

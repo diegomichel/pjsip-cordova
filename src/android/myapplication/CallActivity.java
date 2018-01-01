@@ -1,15 +1,18 @@
 package org.nov.pjsip;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class CallActivity extends AppCompatActivity {
+import org.apache.cordova.CordovaActivity;
+
+import io.cordova.hellocordova.R;
+
+public class CallActivity extends CordovaActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_call);
+        setContentView(this.getApplication().getResources().getIdentifier("activity_call", "layout", this.getApplication().getPackageName()));
         final Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -65,43 +65,35 @@ public class PJSIP {
             final String domain = args.getString(3);
             actions.connect(id, user, pass, domain, context);
         }
-        switch (action) {
-            case "disconnect":
+            if(action.equals("disconnect"))
                 actions.disconnect(context);
-                break;
-            case "declinecall":
+
+            else if(action.equals("declinecall"))
                 actions.declineCall(context);
-                break;
-            case "endcall":
+            else if(action.equals("endcall"))
                 actions.endCall(context);
-                break;
-            case "makecall":
+            else if(action.equals("makecall")) {
                 final String number = args.getString(0);
                 actions.makeCall(number, context);
-                break;
-            case "acceptcall":
+            }
+            else if(action.equals("acceptcall"))
                 actions.acceptCall(context);
-                break;
-            case "activatespeaker": {
+            else if(action.equals("activatespeaker")) {
                 Boolean isActive = Boolean.valueOf(args.getString(0));
                 actions.setSpeakerMode(isActive);
-                break;
             }
-            case "mutemicrophone": {
+            else if(actions.equals("mutemicrophone")) {
                 Boolean isActive = Boolean.valueOf(args.getString(0));
                 actions.muteMicrophone(isActive);
-                break;
             }
-            case "holdcall": {
+            else if(actions.equals("holdcall")) {
                 Boolean isActive = Boolean.valueOf(args.getString(0));
                 actions.holdCall(isActive, context);
-                break;
             }
-            case "dtmfcall":
+            else if(actions.equals("dtmfcall")) {
                 String num = args.getString(0);
                 actions.sendDTMF(num, context);
-                break;
-        }
+            }
 
     }
 }

@@ -25,9 +25,11 @@
     <source-file src="src/android/WakeUpReceiver.java" target-dir="src/org/nov/myplugin" />
 
     <!-- Actual SIP handling code -->
+    <source-file src="src/android/myapplication/res/layout/activity_call.xml" target-dir="res/layout" />
+    <source-file src="src/android/myapplication/res/layout/content_call.xml" target-dir="res/layout" />
+
     <source-file src="src/android/myapplication/BackgroundService.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/CallActivity.java" target-dir="src/org/nov/pjsip" />
-    <source-file src="src/android/myapplication/MainActivity.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/MyAccount.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/MyApp.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/MyAppObserver.java" target-dir="src/org/nov/pjsip" />
@@ -45,6 +47,14 @@
     <source-file src="src/android/jniLibs/armeabi/libpjsua2.so" target-dir="libs/armeabi" />
     <source-file src="src/android/jniLibs/armeabi-v7a/libpjsua2.so" target-dir="libs/armeabi-v7a" />
     <source-file src="src/android/jniLibs/x86/libpjsua2.so" target-dir="libs/x86" />
+
+    <source-file src="src/android/jniLibs/armeabi/libopenh264.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/jniLibs/armeabi-v7a/libopenh264.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="src/android/jniLibs/x86/libopenh264.so" target-dir="libs/x86" />
+
+    <source-file src="src/android/jniLibs/armeabi/libyuv.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/jniLibs/armeabi-v7a/libyuv.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="src/android/jniLibs/x86/libyuv.so" target-dir="libs/x86" />
 
     <!-- PJSUA2 JAVA interface files -->
     <source-file src="src/android/pjsip/PjCamera.java" target-dir="src/org/pjsip/" />

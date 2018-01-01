@@ -5,42 +5,47 @@ package org.nov.myplugin;
  */
 
 import android.app.IntentService;
+import android.app.Service;
 import android.content.Intent;
+import android.os.IBinder;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.support.v4.app.NotificationCompat;
 import android.app.Notification;
 import android.app.NotificationManager;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.nov.pjsip.PJSIP;
+
 /**
  * Created by diego on 10/31/17.
  */
-public class BackgroundService extends IntentService {
+public class BackgroundService extends Service {
   String pkgName = "";
-  public BackgroundService() {
-    super("?");
-  }
+  PJSIP pjsip = null;
 
   @Override
   public int onStartCommand(Intent intent, int flags, int startId) {
     Log.d("BJ", "onStartCommand()");
 
     startForeground(1337, buildForegroundNotification());
+    pjsip = new PJSIP();
+
+    Log.d("UNIQUE", "onHandleIntent");
+    try {
+      pjsip.execute("connect", config("1000", "1000", "s3cure", "staging.chronosar.com"), this);
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
     return(super.onStartCommand(intent, flags, startId));
   }
 
+  @Nullable
   @Override
-  protected void onHandleIntent(Intent workIntent) {
-    // Gets data from the incoming Intent
-    String dataString = workIntent.getDataString();
-
-    pkgName = workIntent.getStringExtra("PKG_NAME");
-    Log.i("BJ", pkgName);
-    // Do work here, based on the contents of dataString
-    while(true) {
-      Log.i("BJ", "The background service is running!!!");
-      SystemClock.sleep(1000);
-    }
+  public IBinder onBind(Intent intent) {
+    return null;
   }
 
   @Override
@@ -60,5 +65,16 @@ public class BackgroundService extends IntentService {
       .setSmallIcon(android.R.drawable.stat_sys_download);
 
     return(b.build());
+  }
+
+  private JSONArray config(String id, String username, String password, String host) {
+    JSONArray config = new JSONArray();
+
+    config.put(id);
+    config.put(username);
+    config.put(password);
+    config.put(host);
+
+    return config;
   }
 }

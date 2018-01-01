@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/lib/org.nov.pjsip"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="org.nov.pjsip.CallActivity">
+
+
+<RelativeLayout
+    android:layout_width="368dp"
+    android:layout_height="485dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="236dp"
+        android:layout_height="95dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:text="Answer"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="236dp"
+        android:layout_height="95dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_column="15"
+        android:layout_row="23"
+        android:text="Cancel Call"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="313dp" />
+</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
