@@ -1,4 +1,4 @@
-package com.example.diego.myapplication;
+package org.nov.pjsip;
 
 import org.pjsip.pjsua2.pjsip_status_code;
 

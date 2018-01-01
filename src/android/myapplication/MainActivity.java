@@ -1,4 +1,4 @@
-package com.example.diego.myapplication;
+package org.nov.pjsip;
 
 import android.content.Intent;
 import android.net.Uri;

@@ -1,4 +1,4 @@
-package com.example.diego.myapplication;
+package org.nov.pjsip;
 
 import android.Manifest;
 import android.app.Activity;
