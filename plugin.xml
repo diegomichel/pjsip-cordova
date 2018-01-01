@@ -4,6 +4,7 @@
   <js-module name="myplugin" src="www/myplugin.js">
     <clobbers target="cordova.plugins.myplugin" /></js-module>
   <platform name="android">
+    <framework src="com.android.support.constraint:constraint-layout:1.0.2" />
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="MyPlugin">
         <param name="android-package" value="org.nov.myplugin.MyPlugin" />
@@ -15,6 +16,10 @@
         android:name="org.nov.myplugin.WakeUpReceiver"
         android:enabled="true" >
       </receiver>
+      <activity
+        android:name="org.nov.pjsip.CallActivity"
+        android:label="CallActivity"
+        ></activity>
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET" />
