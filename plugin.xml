@@ -24,6 +24,23 @@
     <source-file src="src/android/BackgroundService.java" target-dir="src/org/nov/myplugin" />
     <source-file src="src/android/WakeUpReceiver.java" target-dir="src/org/nov/myplugin" />
 
+    <!-- Actual SIP handling code -->
+    <source-file src="src/android/myapplication/BackgroundService.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/CallActivity.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MainActivity.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MyAccount.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MyApp.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MyAppObserver.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MyBuddy.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/MyCall.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/PJSIP.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/Permissions.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/PjsipActions.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/PjsipActivity.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/Utils.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/WakeUpReceiver.java" target-dir="com/example/diego/myapplication" />
+    <source-file src="src/android/myapplication/scAudioManager.java" target-dir="com/example/diego/myapplication" />
+
     <!-- PJSUA JNILIBs -->
     <source-file src="src/android/jniLibs/armeabi/libpjsua2.so" target-dir="libs/armeabi" />
     <source-file src="src/android/jniLibs/armeabi-v7a/libpjsua2.so" target-dir="libs/armeabi-v7a" />
