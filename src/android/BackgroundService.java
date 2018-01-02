@@ -1,9 +1,5 @@
 package org.nov.myplugin;
 
-/**
- * Created by diego on 11/7/17.
- */
-
 import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
@@ -19,64 +15,55 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.nov.pjsip.PJSIP;
 
-/**
- * Created by diego on 10/31/17.
- */
 public class BackgroundService extends Service {
-  String pkgName = "";
-  PJSIP pjsip = null;
+    String TAG = "BackgroundService";
+    String pkgName = "";
+    String config = "";
+    PJSIP pjsip = null;
 
-  @Override
-  public int onStartCommand(Intent intent, int flags, int startId) {
-    Log.d("BJ", "onStartCommand()");
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "onStartCommand()");
 
-    this.pkgName = intent.getStringExtra("PKG_NAME");
+        this.pkgName = intent.getStringExtra("PKG_NAME");
+        this.config = intent.getStringExtra("CONFIG");
 
-    startForeground(1337, buildForegroundNotification());
-    pjsip = new PJSIP();
+        startForeground(1337, buildForegroundNotification());
+        pjsip = new PJSIP();
 
-    Log.d("UNIQUE", "onHandleIntent");
-    try {
-      pjsip.execute("connect", config("1000", "1000", "s3cure", "staging.chronosar.com"), this);
-    } catch (JSONException e) {
-      e.printStackTrace();
+        Log.d(TAG, "onHandleIntent");
+        try {
+            JSONArray config = new JSONArray(this.config);
+            pjsip.execute("connect", config, this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return(super.onStartCommand(intent, flags, startId));
     }
-    return(super.onStartCommand(intent, flags, startId));
-  }
 
-  @Nullable
-  @Override
-  public IBinder onBind(Intent intent) {
-    return null;
-  }
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
-  @Override
-  public void onTaskRemoved(Intent workIntent){
-    Log.i("BJ", "BackgroundService being removed");
+    @Override
+    public void onTaskRemoved(Intent workIntent){
+        Log.i(TAG, "BackgroundService being removed");
 
-    Intent intent = new Intent(this, WakeUpReceiver.class);
-    intent.putExtra("PKG_NAME", pkgName);
-    sendBroadcast(intent);
-  }
+        Intent intent = new Intent(this, WakeUpReceiver.class);
+        intent.putExtra("PKG_NAME", pkgName);
+        intent.putExtra("CONFIG", config);
+        sendBroadcast(intent);
+    }
 
-  private Notification buildForegroundNotification() {
-    NotificationCompat.Builder b=new NotificationCompat.Builder(this);
+    private Notification buildForegroundNotification() {
+        NotificationCompat.Builder b=new NotificationCompat.Builder(this);
 
-    b.setOngoing(true)
-      .setContentTitle("Waiting for incoming calls")
-      .setSmallIcon(android.R.drawable.stat_sys_download);
+        b.setOngoing(true)
+                .setContentTitle("Waiting for incoming calls")
+                .setSmallIcon(android.R.drawable.stat_sys_download);
 
-    return(b.build());
-  }
-
-  private JSONArray config(String id, String username, String password, String host) {
-    JSONArray config = new JSONArray();
-
-    config.put(id);
-    config.put(username);
-    config.put(password);
-    config.put(host);
-
-    return config;
-  }
+        return(b.build());
+    }
 }

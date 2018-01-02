@@ -14,7 +14,9 @@ public class WakeUpReceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String pkgName = intent.getStringExtra("PKG_NAME");
-        restartBackgroundService(context, pkgName);
+        String config = intent.getStringExtra("CONFIG");
+        Log.i(TAG, "pkgName: "+pkgName + "config: "+config);
+        restartBackgroundService(context, pkgName, config);
     }
 
     private void restartMainActivity(Context context, String pkgName) {
@@ -27,11 +29,12 @@ public class WakeUpReceiver extends WakefulBroadcastReceiver {
         context.startActivity(intent);
     }
 
-    private void restartBackgroundService(Context context, String pkgName) {
+    private void restartBackgroundService(Context context, String pkgName, String config) {
         Log.i(TAG, "Restarting BackgroundService");
 
         Intent intent = new Intent(context, BackgroundService.class);
         intent.putExtra("PKG_NAME", pkgName);
+        intent.putExtra("CONFIG", config);
 
         startWakefulService(context, intent);
     }

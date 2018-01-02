@@ -24,28 +24,28 @@ public class MyPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
+            this.coolMethod(args, callbackContext);
             return true;
         }
         return false;
     }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
+    private void coolMethod(JSONArray config, CallbackContext callbackContext) {
+        if (config != null && config.length() > 0) {
             Permissions permissions = new Permissions();
             permissions.request(cordova.getActivity());
-            startBackgroundService();
+            startBackgroundService(config);
 
-            callbackContext.success(message);
+            callbackContext.success("Everything went as expected");
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
     }
 
-    private void startBackgroundService() {
+    private void startBackgroundService(JSONArray config) {
         Intent mServiceIntent = new Intent(this.cordova.getActivity(), BackgroundService.class);
         mServiceIntent.putExtra("PKG_NAME", cordova.getActivity().getPackageName());
+        mServiceIntent.putExtra("CONFIG", config.toString());
         this.cordova.getActivity().startService(mServiceIntent);
     }
 }
