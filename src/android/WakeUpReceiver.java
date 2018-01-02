@@ -10,18 +10,18 @@ import android.util.Log;
  */
 
 public class WakeUpReceiver extends WakefulBroadcastReceiver {
-
+    String TAG="WakeUpReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
         String pkgName = intent.getStringExtra("PKG_NAME");
-        Log.i("BJ", pkgName);
+        Log.i(TAG, "pkgName" + pkgName);
         //This part only restarts the background service...
-        Log.i("BJ", "onReceive trying to restart server");
+        Log.i(TAG, "onReceive trying to restart server");
         Intent service = new Intent(context, BackgroundService.class);
         service.putExtra("PKG_NAME", pkgName);
         startWakefulService(context, service);
 
-        Log.i("BJ", "onReceive trying reopen app");
+        Log.i(TAG, "onReceive trying reopen app");
         //This part reopens the app... useful if you are reciving a call for example.
         Intent intento = new Intent("android.intent.category.LAUNCHER");
 

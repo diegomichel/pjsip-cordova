@@ -30,6 +30,8 @@ public class BackgroundService extends Service {
   public int onStartCommand(Intent intent, int flags, int startId) {
     Log.d("BJ", "onStartCommand()");
 
+    this.pkgName = intent.getStringExtra("PKG_NAME");
+
     startForeground(1337, buildForegroundNotification());
     pjsip = new PJSIP();
 
