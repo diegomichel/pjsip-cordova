@@ -19,6 +19,7 @@ import org.nov.pjsip.Permissions;
  * This class echoes a string called from JavaScript.
  */
 public class MyPlugin extends CordovaPlugin {
+    String TAG="MyPlugin";
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -32,24 +33,19 @@ public class MyPlugin extends CordovaPlugin {
 
     private void coolMethod(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
-
-            Context context = this.cordova.getActivity().getApplicationContext();
-
-            Log.i("BJ", "Starting!!!");
-
             Permissions permissions = new Permissions();
             permissions.request(cordova.getActivity());
-
-            Intent mServiceIntent = new Intent(this.cordova.getActivity(), BackgroundService.class);
-            mServiceIntent.setData(Uri.parse("http://diegomichel.org"));
-            Log.i("BJ", cordova.getActivity().getPackageName());
-            mServiceIntent.putExtra("PKG_NAME", cordova.getActivity().getPackageName());
-
-            this.cordova.getActivity().startService(mServiceIntent);
+            startBackgroundService();
 
             callbackContext.success(message);
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
+    }
+
+    private void startBackgroundService() {
+        Intent mServiceIntent = new Intent(this.cordova.getActivity(), BackgroundService.class);
+        mServiceIntent.putExtra("PKG_NAME", cordova.getActivity().getPackageName());
+        this.cordova.getActivity().startService(mServiceIntent);
     }
 }
