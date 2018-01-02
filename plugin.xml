@@ -35,7 +35,6 @@
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
       <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     </config-file>
-    <config-file parent="/*" target="AndroidManifest.xml"></config-file>
     <source-file src="src/android/MyPlugin.java" target-dir="src/org/nov/myplugin" />
     <source-file src="src/android/BackgroundService.java" target-dir="src/org/nov/myplugin" />
     <source-file src="src/android/WakeUpReceiver.java" target-dir="src/org/nov/myplugin" />
