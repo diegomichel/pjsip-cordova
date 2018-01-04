@@ -42,7 +42,6 @@
     <!-- Actual SIP handling code -->
     <source-file src="src/android/myapplication/res/layout/activity_call.xml" target-dir="res/layout" />
 
-    <source-file src="src/android/myapplication/BackgroundService.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/CallActivity.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/MyAccount.java" target-dir="src/org/nov/pjsip" />
     <source-file src="src/android/myapplication/MyApp.java" target-dir="src/org/nov/pjsip" />
