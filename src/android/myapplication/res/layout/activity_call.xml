@@ -18,9 +18,10 @@ tools:context="org.nov.pjsip.CallActivity">
         android:id="@+id/button1"
         android:layout_width="236dp"
         android:layout_height="95dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button2"
+        android:layout_above="@+id/button2"
         android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginBottom="35dp"
         android:text="Answer"
         tools:layout_editor_absoluteX="74dp"
         tools:layout_editor_absoluteY="129dp" />
@@ -37,6 +38,23 @@ tools:context="org.nov.pjsip.CallActivity">
         android:text="Cancel Call"
         tools:layout_editor_absoluteX="74dp"
         tools:layout_editor_absoluteY="313dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/incoming_call_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="59dp"
+        android:text="Incoming Call From:" />
+
+    <TextView
+        android:id="@+id/incoming_call_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="65dp" />
 </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

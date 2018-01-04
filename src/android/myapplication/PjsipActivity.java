@@ -274,6 +274,7 @@ public class PjsipActivity implements MyAppObserver {
 
         Intent myIntent = new Intent(this.mcontext, CallActivity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        myIntent.putExtra("INCOMING_CALL_NUMBER", inComingCallNumber);
         mcontext.startActivity(myIntent);
 
         currentCall = call;
