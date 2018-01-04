@@ -15,7 +15,7 @@ tools:context="org.nov.pjsip.CallActivity">
     tools:layout_editor_absoluteY="8dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="236dp"
         android:layout_height="95dp"
         android:layout_alignParentTop="true"
